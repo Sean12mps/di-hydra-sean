@@ -1,0 +1,124 @@
+{
+  "name": "base-theme",
+  "version": "1.0.0",
+  "description": "Hi. I'm a base theme.",
+  "author": "Dinkum Interactive Team",
+  "license": "MIT",
+  "keywords": [
+    "WordPress",
+    "Theme"
+  ],
+  "homepage": "https://github.com/DinkumInteractive/base-theme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DinkumInteractive/base-theme.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DinkumInteractive/base-theme/issues"
+  },
+  "scripts": {
+    "start": "composer install --ignore-platform-reqs && npm install && npm run build",
+    "build": "NODE_ENV=production webpack --config config/webpack.config.prod.js",
+    "dev": "NODE_ENV=development webpack --config config/webpack.config.dev.js",
+    "watch": "NODE_ENV=development NODE_WATCH=theme webpack --watch --config config/webpack.config.dev.js",
+    "watch-html": "NODE_ENV=development NODE_WATCH=html webpack --watch --config config/webpack.config.htmldev.js",
+    "build-release": "npm install && composer install --no-dev -o && npm run build",
+    "lint-release": "npm install && composer install && npm run lint",
+    "lint-css": "stylelint assets/sass assets/css",
+    "lint-js": "eslint assets/js",
+    "lint-php": "composer run lint",
+    "format-js": "eslint --fix assets/js",
+    "format-css": "stylelint assets/sass assets/css --fix",
+    "format-php": "composer lint-fix",
+    "lint": "npm run lint-css && npm run lint-js && npm run lint-php",
+    "format": "npm run format-js && npm run format-css && npm run format-php",
+    "test-a11y": "node tests/accessibility/compliance/pa11y.js"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@wordpress/babel-preset-default": "^4.17.0",
+    "@wordpress/scripts": "^12.1.1",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.1.0",
+    "browser-sync": "^2.26.12",
+    "browser-sync-webpack-plugin": "^2.2.2",
+    "browserslist": "^4.14.0",
+    "caniuse-db": "^1.0.30001114",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^6.0.3",
+    "core-js": "^3.6.5",
+    "css-loader": "^4.2.1",
+    "cssnano": "^4.1.10",
+    "eslint": "^7.7.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsdoc": "^30.2.2",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-react-hooks": "^4.0.8",
+    "imagemin-webp-webpack-plugin": "^3.3.2",
+    "imagemin-webpack-plugin": "^2.4.2",
+    "postcss-calc": "^8.0.0",
+    "postcss-cli": "^8.3.1",
+    "postcss": "^8.3.0",
+    "postcss-css-variables": "^0.18.0",
+    "postcss-custom-media": "^8.0.0",
+    "postcss-discard-duplicates": "^5.0.1",
+    "postcss-focus-within": "^4.0.0",
+    "postcss-nested": "^5.0.5",
+    "postcss-editor-styles": "^0.3.0",
+    "postcss-import": "^12.0.1",
+    "postcss-loader": "^3.0.0",
+    "postcss-preset-env": "^6.7.0",
+    "postcss-scss": "^2.1.1",
+    "prettier": "^2.0.5",
+    "rtlcss": "^2.5.0",
+    "sass": "^1.26.10",
+    "sass-loader": "^9.0.3",
+    "stylelint": "^13.6.1",
+    "stylelint-config-wordpress": "^17.0.0",
+    "stylelint-declaration-use-variable": "^1.7.2",
+    "stylelint-order": "^4.1.0",
+    "stylelint-webpack-plugin": "^2.1.0",
+    "terser": "^5.1.0",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-fix-style-only-entries": "^0.5.1",
+    "webpack-merge": "^5.1.1",
+    "webpackbar": "^4.0.0"
+  },
+  "testing": {
+    "urls": {
+      "homepage": "http://base-theme.test",
+      "article": "http://base-theme.test/hello-world",
+      "search-results": "http://base-theme.test/?s=hello",
+      "local": "http://base-theme.test"
+    },
+    "accessibility": {
+      "compliance": "WCAG2AA"
+    }
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "rtlcssConfig": {
+    "options": {
+      "autoRename": false,
+      "autoRenameStrict": false,
+      "blacklist": {},
+      "clean": true,
+      "greedy": false,
+      "processUrls": false,
+      "stringMap": []
+    },
+    "plugins": [],
+    "map": false
+  },
+  "dependencies": {
+    "bootstrap": "^4.5.2"
+  }
+}
